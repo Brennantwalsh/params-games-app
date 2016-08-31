@@ -47,4 +47,30 @@ class ParamsGamesController < ApplicationController
       end
     end
   end
+
+  def get_form
+  end
+
+  def send_form
+    @hello = params[:message]
+  end
+
+  def guess_again
+  end
+
+  def did_you
+    message = params[:message].to_i
+    number = 36
+    unless message.nil?
+      if message < 1 || message > 100
+        @response = "out of bounds"
+      elsif message > number
+        @response = "The number is lower"
+      elsif message < number
+        @response = "The number is higher"
+      elsif message == number
+        @response = "you guessed it"
+      end
+    end
+  end
 end

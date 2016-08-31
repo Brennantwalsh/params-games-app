@@ -1,0 +1,12 @@
+<h1>Here's a form</h1>
+
+<%= form_tag '/send_form', method: :post do %>
+  <div>
+    <%= label_tag :message, 'Enter Message'%>
+    <%= text_field_tag :message, nil, placeholder: 'enter guess here' %>
+  </div>
+  <div>
+    <%= submit_tag 'Send Message' %>
+  </div>
+
+<% end %>

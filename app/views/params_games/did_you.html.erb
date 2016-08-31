@@ -1,0 +1,7 @@
+<h2><%=@response %></h2>
+
+<%= form_tag '/guess_again', method: :get do %>
+  <div>
+    <%= submit_tag 'try_again' %>
+  </div>
+<% end %>  
