@@ -27,4 +27,24 @@ class ParamsGamesController < ApplicationController
       end
     end
   end
+  
+  def url
+    @wildcard = params[:wildcard]
+  end
+
+  def guess_game
+    message = params[:guess].to_i
+    number = 36
+    unless message.nil?
+      if message < 1 || message > 100
+        @answer = "out of bounds"
+      elsif message > number
+        @answer = "The number is lower"
+      elsif message < number
+        @answer = "The number is higher"
+      elsif message == number
+        @answer = "you guessed it"
+      end
+    end
+  end
 end
