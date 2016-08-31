@@ -12,15 +12,17 @@ class ParamsGamesController < ApplicationController
   end
 
   def number_game
-    @answer = ''   
-    @message = params[:message]
-    @number = 36
-    unless @message.nil?
-      if @message.to_i > @number
+    
+    message = params[:message].to_i
+    number = 36
+    unless message.nil?
+      if message < 1 || message > 100
+        @answer = "out of bounds"
+      elsif  message > number
         @answer = "The number is lower"
-      elsif @message.to_i < @number
+      elsif message < number
         @answer = "The number is higher"
-      elsif @message.to_i == @number
+      elsif message == number
         @answer = "you guessed it"
       end
     end
